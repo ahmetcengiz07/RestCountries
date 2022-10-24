@@ -1,0 +1,94 @@
+import {useEffect, useState} from 'react';
+
+DOM’da oluşturulan (render) her React bileşeni, oluşturma işleminden önce ve sonra bir dizi adımdan geçer. 
+Bir bileşen her oluşturma işleminde “Yaşam Döngüsü (lifecycle)” olarak adlandırılan temel adımları vardır 
+Bunlar:
+Mounting   :Bağlama
+Updating   :Güncelleme
+Unmouting   :Ayırma
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *****************useEffect
+
+// (side Effectleri)  Component  yüklendikten sonra yapılması istenen işlemler 
+// ( ör: Apı request, timers,EventListener)
+ //******************************ComponentDidMount: 
+
+// ComponentDidMount = Component ilk yüklendiğinde bir kereye mahsus çalıştırılır.
+
+// UseEffect ( () => {console.log('ComponentDidMount çalıştı');} , [])
+// UseEffetc iki adet paramatre alır 1) fonksiyon 2 )Dependency Array (diziye bak dizinin içindeki elemanlar değiştiğinde bu diziyi çalıştır)
+// boş dizi verirsek [] dizi boş olduğundan hiç bir değişiklik olmaz
+
+//***************** */ ComponentDidUpdate = Component her yenilendiğinde çalışır.
+
+//dependency array içerisine yazılanlar değişkilikleri takip etmesini istediğimiz fonskiyonlardır 
+// hiçbir dependency array olmaz ise componentDidUpdate olarak çalışır
+
+// UseEffect ( () =>{}, [counter])
+// counter her değiştiğinde useEffect içerisindeki fonksiyon çağırlır.
+//********************* */ componentWillUnmount:
+
+
+// Temizlenmesi gereken ,Component ekrandan kaldırıldığında durdurulması gereken işlemler için kullanılır ör:Timer
+// const FunctinalComponent = () => {
+//   const [timer, setTimer] = useState(0);
+//   
+
+//   useEffect(()=>{
+//     const myTimer = setInterval(()=> {
+//         setTimer(timer => timer + 1)
+//     },1000);
+//     return () => clearInterval (myTimer)
+//   }, [])
+
+  //useEffect çağırıldı 
+  //1000 ms sonra güncellenmesini istediğimiz setInterval fonskiyonu çağırıldı
+  //yapılmak istenen değişiklik setTımer değişkenine callback fonksiyonu ile gönderildi
+  //returnun burdaki görevi FunctinalComponene unMount edilirken myTimer fonskiyonunu çağır.
+  //ve setInterval fonksiyonunu silebilmek için geriye clearInterval fonksionu içinde oluşturulan
+  //Mytimer fonksionu gönderildi
+
+
+  DOM (DOCUMENT OBJECT MODEL) NEDİR:
+
+  W3C(World Wide Web Consortium)'e göre Document Object Model, programların ve komut dosyalarının bir belgenin içeriğine, 
+  yapısına ve stiline dinamik olarak erişmesine ve güncellemesine izin veren bir platform ve dilden bağımsız bir arayüzdür.
+  Dinamikliğe örnek olarak if kullanımı verilebilir.
+
+  DOM javascript içerisinde kontrol etmek için bir yapı sunar .
+
+  Tarayıcının belgeyi temsil etmek için kullandığı veri yapısı bu şekli izler. Her kutu için,
+   hangi HTML etiketini temsil ettiği ve hangi kutuları ve metni içerdiği gibi şeyleri bulmak için etkileşime girebileceğimiz bir nesne vardır. 
+  Bu temsil, Document Object Model veya kısaca DOM olarak adlandırılır. 
+
+  DOM’da HTML ile hazırladığınız sayfa, document; bu document'in içine yerleştirdiğiniz her türlü öğe ise element olarak adlandırılır. 
+  DOM'da nesnelerin birer element olarak kullanılabilmesi için hiyerarşik bir düzen izlenerek çağrılmaları gerekir.
+   HTML’deki her bir elamanın birbiri ile hiyerarşik bir yapı oluşturması ile oluşur. DOM bir ağaç dizini gibi bütün dokümanları birbirine bağlar.
